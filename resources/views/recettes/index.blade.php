@@ -19,6 +19,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">{{$recette->nom}}</h5>
                         <p>#{{$recette->id}}</p>
+                        <p>Posté par {{$recette->user}}</p>
                     </div>
                 </div>
             </div>

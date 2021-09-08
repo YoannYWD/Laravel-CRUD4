@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 use App\Models\Recette;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecetteController extends Controller
 {
     public function index() {
-        $recettes = Recette::all();
+        $recettes = DB::table('recettes')
+        ->join('users', 'recettes.user_id', '=', 'users.id')
+        ->select('recettes.id', 'recettes.nom', 'recettes.image', 'users.name as user')
+        ->get();
         return view('recettes.index', compact('recettes'));
     }
 

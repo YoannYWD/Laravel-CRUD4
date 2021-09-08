@@ -20,8 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', [UserAuthController::class, 'dashboard']);
-Route::get('login', [UserAuthController::class, 'index'],
-                    [RecetteController::class, 'index'])->name('login');
+Route::get('login', [UserAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [UserAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [UserAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [UserAuthController::class, 'customRegistration'])->name('register.custom');
