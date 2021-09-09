@@ -22,7 +22,7 @@ class UserAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('dashboard/index')
                              ->with('success', 'Utilisateur connecté.');
         }
 
@@ -43,7 +43,7 @@ class UserAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect('dashboard.index')->with('success', 'Vous êtes enregistré.');
+        return redirect('dashboard')->with('success', 'Vous êtes enregistré.');
     }
 
     public function create(array $data) {
@@ -56,9 +56,9 @@ class UserAuthController extends Controller
 
     public function dashboard() {
         if(Auth::check()) {
-            return view('dashboard');
+            return view('dashboard/index');
         }
-        return redirect('login')->with('success', "Vous êtes enregistré.");
+        return redirect('login')->with('success', "Vous n'êtes pas connecté.");
     }
 
     public function signOut() {

@@ -29,3 +29,6 @@ Route::get('signout', [UserAuthController::class, 'signout'])->name('signout');
 Route::get('dashboard/create', [RecetteController::class, 'create'])->name('create');
 Route::post('dashboard/store', [RecetteController::class, 'store'])->name('store');
 Route::get('dashboard/index', [RecetteController::class, 'index'])->name('index');
+Route::get('dashboard/edit/{id}', [RecetteController::class, 'edit'])->name('edit');
+Route::patch('dashboard/update/{id}', [RecetteController::class, 'update'])->name('update');
+Route::delete('dashboard/destroy/{id}', [RecetteController::class, 'destroy'])->name('destroy');
